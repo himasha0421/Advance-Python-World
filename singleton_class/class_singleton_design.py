@@ -34,6 +34,10 @@ class MetaClass(type):
         if cls not in cls._instance:
             cls._instance[cls] = super(MetaClass, cls).__call__(*args, **kwds)
             return cls._instance[cls]
+        else:
+            print(
+                "singleton protected class , not permited to create multiple instances"
+            )
 
     def execution_time(func):  # type: ignore
         """measure function execution time
