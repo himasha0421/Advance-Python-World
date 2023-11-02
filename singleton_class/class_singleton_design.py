@@ -26,11 +26,25 @@ class MetaClass(type):
     _logger = logging.getLogger(__name__)
 
     def __call__(cls, *args: Any, **kwds: Any) -> Any:
+        """function initialization make sure only one instance initiated
+
+        Returns:
+            Any: _description_
+        """
         if cls not in cls._instance:
             cls._instance[cls] = super(MetaClass, cls).__call__(*args, **kwds)
             return cls._instance[cls]
 
     def execution_time(func):  # type: ignore
+        """measure function execution time
+
+        Args:
+            func (_type_): input function
+
+        Returns:
+            _type_: executed results
+        """
+
         @wraps(func)
         def wrapper(self, *args: Any, **kwargs: Any):
             start_time = time.time()
@@ -42,6 +56,8 @@ class MetaClass(type):
         return wrapper  # type: ignore
 
     def log(func):  # type: ignore
+        """generate logs for function execution"""
+
         @wraps(func)
         def wrapper(self, *args: Any, **kwargs: Any):
             res = func(self, *args, **kwargs)
