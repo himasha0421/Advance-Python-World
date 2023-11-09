@@ -16,6 +16,10 @@ class Transactions(Enum):
 
 
 class BankAccount:
+    """python slots create static memeory for object attributed which is saving of RAM
+    otherwise normally classes keep dynamic dictionary to keep attributes and slots are more faster to get data
+    """
+
     __slots__ = ("_account_number", "_holder_name", "_pin")
 
     def __init__(self, account_number: int, holder_name: str, pin: int) -> None:
