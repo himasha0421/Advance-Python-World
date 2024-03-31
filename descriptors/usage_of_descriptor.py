@@ -63,13 +63,16 @@ print(my_deep_thought_instance.meaning_of_life)
 print(my_deep_thought_instance.meaning_of_life)
 
 """
-Since it is a non-data descriptor, when you first access the value of the meaning_of_life attribute, .__get__() is automatically called and executes .meaning_of_life() on the my_deep_thought_instance object. The resulting value is stored in the __dict__ attribute of the object itself. When you access the meaning_of_life attribute again, 
+Since it is a non-data descriptor, when you first access the value of the meaning_of_life attribute, .__get__() is automatically called and executes 
+.meaning_of_life() on the my_deep_thought_instance object. The resulting value is stored in the __dict__ attribute of the object itself. 
+When you access the meaning_of_life attribute again, 
 Python will use the lookup chain to find a value for that attribute inside the __dict__ attribute, and that value will be returned immediately.
 """
 
 
 """
-. If you had implemented a data descriptor, then the trick would not have worked. Following the lookup chain, it would have had precedence over the value stored in __dict__.
+. If you had implemented a data descriptor, then the trick would not have worked. Following the lookup chain, 
+it would have had precedence over the value stored in __dict__.
  To test this out, run the following code:
 """
 
